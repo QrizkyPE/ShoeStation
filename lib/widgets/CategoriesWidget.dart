@@ -11,7 +11,7 @@ class CategoriesWidget extends StatelessWidget {
         children: [
           for (int i = 7; i <= 11; i++)
           Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 10), 
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               decoration: BoxDecoration(
                 color: Colors.white,

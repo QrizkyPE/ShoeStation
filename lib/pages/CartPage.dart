@@ -11,7 +11,7 @@ class CartPage extends StatelessWidget {
         children: [
           Padding(padding: EdgeInsets.only(top: 15)),
           CartAppBar(),
-          Expanded( 
+          Expanded(  
             child: Container(
               padding: EdgeInsets.only(top: 10),
               decoration: BoxDecoration(

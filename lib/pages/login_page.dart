@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
       // Navigate to homepage
       Navigator.pushNamed(context, '/homePage');
     } else {
-      // Show error dialog
+      // error dialog
       showDialog(
         context: context,
         builder: (context) {

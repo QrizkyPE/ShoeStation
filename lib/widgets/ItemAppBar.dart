@@ -29,7 +29,7 @@ class ItemAppBar extends StatelessWidget{
           ),
           Spacer(),
           Icon(
-      Icons.favorite_border,
+      Icons.favorite_border, 
             size: 30,
             color: Colors.red,
             

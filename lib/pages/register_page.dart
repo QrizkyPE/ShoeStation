@@ -31,7 +31,7 @@ class RegisterPage extends StatelessWidget {
                 Image.asset(
                   'images/ShoeStation.png',
                   height: 500,
-                  width: 500, // Perbesar sesuai keinginan
+                  width: 500,
                 ),
 
                 const SizedBox(height: 15),

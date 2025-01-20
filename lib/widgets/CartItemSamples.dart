@@ -9,7 +9,7 @@ class CartItemSamples extends StatelessWidget {
     {"title": "Casual Sneakers", "price": "1.000.000", "image": "images/2.png"},
     {"title": "Formal Shoes", "price": "1.500.000", "image": "images/3.png"},
   ];
-
+ 
   @override
   Widget build(BuildContext context) {
     return Column(

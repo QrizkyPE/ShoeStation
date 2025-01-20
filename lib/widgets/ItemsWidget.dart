@@ -10,12 +10,21 @@ class ItemsWidget extends StatefulWidget {
 
 class _ItemsWidgetState extends State<ItemsWidget> {
   final List<Map<String, dynamic>> products = [
-    {"id": 1, "title": "Jordan High Rebellion", "description":"High-quality sports shoes","price": "3.000.000","discount":"10%", "image": "images/1.png"},
-    {"id": 2, "title": "Casual Sneakers", "description":"Sneakers for running, sports, and leisure activities", "price": "1.000.000","discount":"15%", "image": "images/2.png"},
-    {"id": 3, "title": "Formal Shoes", "description":"Formal shoes for formal occasions","price": "1.500.000", "discount":"10%", "image": "images/3.png"},
-    {"id": 4, "title": "Running Shoes", "description":"Running shoes for all kinds of running activities","price": "1.200.000","discount":"10%", "image": "images/4.png"},
-    {"id": 5, "title": "Basketball Shoes", "description":"Basketball shoes for all kinds of basketball activities","price": "2.800.000","discount":"15%", "image": "images/5.png"},
+    {"id": 1, "title": "Jordan High Rebellion", "description":"High-quality sports shoes","price": "3.000.000","discount":"10%", "image": "images/1.png", "isFavorite": false},
+    {"id": 2, "title": "Casual Sneakers", "description":"Sneakers for running, sports, and leisure activities", "price": "1.000.000","discount":"15%", "image": "images/2.png", "isFavorite": false},
+    {"id": 3, "title": "Formal Shoes", "description":"Formal shoes for formal occasions","price": "1.500.000", "discount":"10%", "image": "images/3.png", "isFavorite": false},
+    {"id": 4, "title": "Running Shoes", "description":"Running shoes for all kinds of running activities","price": "1.200.000","discount":"10%", "image": "images/4.png", "isFavorite": false},
+    {"id": 5, "title": "Basketball Shoes", "description":"Basketball shoes for all kinds of basketball activities","price": "2.800.000","discount":"15%", "image": "images/5.png", "isFavorite": false},
   ];
+
+  void toggleFavorite(int index) {
+    setState(() {
+      products[index]["isFavorite"] = !products[index]["isFavorite"];
+      if (products[index]["isFavorite"]) {
+        widget.addToFavorites(products[index]); // Add to favorites if marked
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +33,8 @@ class _ItemsWidgetState extends State<ItemsWidget> {
       physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: 2,
       shrinkWrap: true,
-      children: products.map((product) {
+      children: List.generate(products.length, (index) {
+        final product = products[index];
         return Container(
           padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
           margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
@@ -43,9 +53,9 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                       color: const Color(0xFF4C53A5),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child:  Text(
+                    child: Text(
                       product["discount"],
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -53,9 +63,12 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                     ),
                   ),
                   IconButton(
-                    icon: const Icon(Icons.favorite_border, color: Colors.red),
+                    icon: Icon(
+                      product["isFavorite"] ? Icons.favorite : Icons.favorite_border,
+                      color: Colors.red,
+                    ),
                     onPressed: () {
-                      widget.addToFavorites(product); // Tambahkan ke favorit
+                      toggleFavorite(index); // Toggle favorite state
                     },
                   ),
                 ],
@@ -96,18 +109,18 @@ class _ItemsWidgetState extends State<ItemsWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
                   children: [
                     Text(
                       "Rp ${product["price"]}",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Color(0xFF4C53A5),
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.shopping_cart_checkout,
                       color: Color(0xFF4C53A5),
                     ),
@@ -117,7 +130,7 @@ class _ItemsWidgetState extends State<ItemsWidget> {
             ],
           ),
         );
-      }).toList(),
+      }),
     );
   }
 }

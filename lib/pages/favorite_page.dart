@@ -1,3 +1,5 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FavoritePage extends StatelessWidget {
@@ -25,6 +27,39 @@ class FavoritePage extends StatelessWidget {
                 );
               },
             ),
+      //       bottomNavigationBar: CurvedNavigationBar(
+      //   backgroundColor: Colors.transparent,
+      //   onTap: (index) {
+      //     if (index == 0) {
+      //       // Navigasi ke halaman Cart
+      //       Navigator.pushNamed(context, '/homePage');
+      //     } else if (index == 1) {
+      //       // Navigasi ke halaman Favorite
+            
+      //         Navigator.pushNamed(context, 'cartPage');
+            
+      //     }
+      //   },
+      //   height: 70,
+      //   color: const Color(0xFF4C53A5),
+      //   items: const [
+      //     Icon(
+      //       Icons.home,
+      //       size: 30,
+      //       color: Colors.white,
+      //     ),
+      //     Icon(
+      //       CupertinoIcons.cart_fill,
+      //       size: 30,
+      //       color: Colors.white,
+      //     ),
+      //     Icon(
+      //       Icons.favorite,
+      //       size: 30,
+      //       color: Colors.white,
+      //     ),
+      //   ],
+      // ),
     );
   }
 }

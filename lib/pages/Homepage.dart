@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
 
-                // Items Widget with favorite functionality
+                // Items Widget 
                 ItemsWidget(addToFavorites: addToFavorites),
               ],
             ),
