@@ -1,3 +1,12 @@
-# shoestation
+# ShoeStation
+Aplikasi E-Commerce yang berfokus pada produk sepatu
 
-A new Flutter project.
+## Halaman
+Register
+Login
+Home
+Detail
+Cart
+Favorite
+Profile
+
